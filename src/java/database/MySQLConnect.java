@@ -73,7 +73,6 @@ public class MySQLConnect {
 //            }
             input.close();
         } catch (IOException ex) {
-            ex.printStackTrace();
         }
 
         connectMySQL();
@@ -90,9 +89,7 @@ public class MySQLConnect {
             }
 
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
         }
 
         //System.out.println("Connected DB. = " + Value.countConnectDB);
