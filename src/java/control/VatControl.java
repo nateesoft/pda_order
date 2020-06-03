@@ -40,7 +40,6 @@ public class VatControl {
                     + "set NetTotal='" + NetTotal + "' "
                     + "where TCode='" + tableNo + "'";
             MySQLConnect.exeUpdate(sql);
-//            MySQLConnect.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -59,7 +58,6 @@ public class VatControl {
                     + "set NetTotal='" + NetTotal + "' "
                     + "where TCode='" + tableNo + "'";
             MySQLConnect.exeUpdate(sql);
-//            MySQLConnect.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

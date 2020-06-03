@@ -123,31 +123,6 @@ public class ServiceControl {
                     + "TItem='" + tItem + "' " // NetTotal ผิด
                     + "where Tcode = '" + table + "'";
             MySQLConnect.exeUpdate(sqlUpd);
-
-            // update all discount
-            // ส่วนนี้ยัง งง อยู่เหมือนกันว่าทำไมถึงเรียกซ้ำอีกรอบ มันเลยทำให้ค่า ServiceAmt และ Total_Vat_Amt เปลี่ยน
-            // ตอนแรกก็ใช้ได้ แต่ตอนตรวจสอบหาว่าสินค้า คิด Vat หรือไม่มันไม่มี เพราะเงื่อนไขตรวจสอบ vat ก่อนเงื่อนไขข้างล่าง
-//            TableFileControl tfc = new TableFileControl();
-//            TableFileBean tBean = tfc.getData(table);
-//            double totalDiscount = tBean.getEmpDiscAmt()+tBean.getFastDiscAmt()+tBean.getTrainDiscAmt()+
-//                    tBean.getMemDiscAmt()+tBean.getSubDiscAmt()+tBean.getDiscBath()+
-//                    tBean.getSpaDiscAmt()+tBean.getCuponDiscAmt()+
-////                    tBean.getItemDiscAmt()+
-//                    tBean.getProDiscAmt();
-//            ServiceAmt = ((tBean.getTAmount()-totalDiscount)*ServicePercent)/100; // totalDiscount เก็บค่ามาผิด 45 จริงๆ ต้องเอาค่า 20.25
-//            Total_Vat_Amt = (tBean.getTAmount()-totalDiscount) + ServiceAmt; // ServiceAmt ตามจริงต้องได้ 20.25
-//            try {
-//                sqlUpd = "update tablefile "
-//                    + "set ServiceAmt = '" + ServiceAmt + "',"
-//                    + "TAmount='" + TAmount + "',"
-//                    + "NetTotal = " + Total_Vat_Amt + " "
-//                    + "where Tcode = '" + table + "'";
-//                MySQLConnect.exeUpdate(sqlUpd);
-//            } catch (Exception e) {
-//                System.err.println(e.getMessage());
-//            }
-//            
-//            MySQLConnect.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
             MSG.ERR(e.toString());
